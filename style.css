@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --youTube: hsl(348, 97%, 39%);
+
+  --toggle-background: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+  --toggle-light: hsl(230, 22%, 74%);
+
+  /* Dark Theme */
+  --very-dark-blue-bg: hsl(230, 17%, 14%); /* (BG) */
+  --very-dark-blue-top-bg: hsl(232, 19%, 15%); /* (Top BG Pattern) */
+  --dark-desaturated-blue: hsl(228, 28%, 20%); /* (Card BG) */
+  --desaturated-blue: hsl(228, 34%, 66%); /* (Text) */
+  --white: hsl(0, 0%, 100%); /* (Text) */
+
+  /* Light Theme */
+  --white: hsl(0, 0%, 100%); /* (BG) */
+  --very-pale-blue: hsl(225, 100%, 98%); /* (Top BG Pattern) */
+  --light-grayish-blue: hsl(227, 47%, 96%); /* (Card BG) */
+  --dark-grayish-blue: hsl(228, 12%, 44%); /* (Text) */
+  --very-dark-blue-text: hsl(230, 17%, 14%); /* (Text) */
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--very-dark-blue-bg);
+  position: relative;
+  transition: 0.3s;
+}
+body::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 230px;
+  left: 0;
+  top: 0;
+  background: var(--very-dark-blue-top-bg);
+  z-index: -1;
+  transition: 0.3s;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 1100px;
+  color: var(--white);
+}
+header h2 {
+  font-size: 1.75em;
+}
+header h5 {
+  color: var(--desaturated-blue);
+  margin-top: 5px;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  color: var(--desaturated-blue);
+}
+.toggle input {
+  display: block;
+  appearance: none;
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background: var(--toggle-background);
+  cursor: pointer;
+  position: relative;
+}
+.toggle input::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  border-radius: 50%;
+  background: var(--very-dark-blue-top-bg);
+  transition: 0.3s;
+}
+.toggle input:checked::before {
+  left: 29px;
+}
+
+main {
+  width: 1100px;
+  margin-top: 50px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top .card {
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.top .card .border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.handle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.handle span {
+  color: var(--desaturated-blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+.top .card h1 {
+  margin-top: 20px;
+  font-size: 3.5em;
+}
+.top .card p {
+  text-transform: uppercase;
+  color: var(--desaturated-blue);
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+.top .card .growth {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.top .card .growth.up {
+  color: var(--lime-green);
+}
+.top .card .growth.down {
+  color: var(--bright-red);
+}
+
+.bottom {
+  color: var(--white);
+  margin-top: 50px;
+}
+.overview {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 30px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.overview .card {
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+.overview .card .engagement,
+.overview .card .figures {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.overview .card .engagement {
+  color: var(--desaturated-blue);
+}
+.overview .card .figures {
+  margin-top: 15px;
+}
+.card {
+  cursor: pointer;
+  transition: 0.3s;
+  background: var(--dark-desaturated-blue);
+  color: var(--white);
+  width: 250px;
+}
+.card:hover {
+  background: #333a56;
+}
+.figures span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.figures span.up {
+  color: var(--lime-green);
+}
+.figures span.down {
+  color: var(--bright-red);
+}
+.attribution {
+  padding: 20px;
+  font-size: 12px;
+  color: var(--white);
+}
+.attribution a {
+  color: var(--desaturated-blue);
+  text-decoration: none;
+}
+
+/* Light Theme */
+.light,
+.light .toggle input::before {
+  background: var(--white);
+}
+.light::before {
+  background: var(--very-pale-blue);
+}
+.light .toggle {
+  color: var(--toggle-light);
+}
+.light .toggle input {
+  background: var(--toggle-light);
+}
+.light .toggle input:hover {
+  background: var(--toggle-background);
+}
+.light header,
+.light .card {
+  color: var(--very-dark-blue-text);
+}
+.light .card {
+  background: var(--light-grayish-blue);
+}
+.light .card:hover {
+  background: #e1e3f0;
+}
+.light header h5,
+.light .handle span,
+.light .top .card p,
+.light .overview .card .engagement {
+  color: var(--dark-grayish-blue);
+}
+.light .toggle input::before {
+  left: 29px;
+}
+.light .attribution {
+  color: var(--very-dark-blue-text);
+}
+.light .attribution a {
+  color: var(--dark-grayish-blue);
+}
+
+@media screen and (max-width: 1100px) {
+  header {
+    display: block;
+    width: 90%;
+    margin-top: 50px;
+  }
+  .title {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--dark-grayish-blue);
+  }
+  .toggle {
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+  main {
+    width: 90%;
+  }
+  .top {
+    display: block;
+  }
+  .overview {
+    display: block;
+  }
+  .card {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
